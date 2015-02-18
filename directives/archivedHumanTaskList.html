@@ -1,0 +1,14 @@
+<table ng-show="taskListCtrl.archivedTasks.items.length > 0" class="listing">
+<tr>
+	<th>Task Name</th>
+	<th>Process</th>
+	<th>Completed Date</th>
+</tr>
+<tr ng-repeat="task in taskListCtrl.archivedTasks.items">
+	<td>{{task.displayName}}</td>
+	<td>{{task.processId.displayName}} {{task.processId.version}}</td>
+	<td>{{task.reached_state_date | dateString}}</td>
+</tr>
+</table>
+
+<h4 ng-show="taskListCtrl.archivedTasks.items.length == 0">No archived task.</h4>

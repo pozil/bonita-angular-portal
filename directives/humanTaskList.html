@@ -1,0 +1,22 @@
+<table ng-show="taskListCtrl.tasks.items.length > 0" class="listing ready-tasks">
+<tr>
+	<th>Task Name</th>
+	<th>Process</th>
+	<th>Priority</th>
+	<th>Ready Date</th>
+	<th>Due Date</th>
+	<th></th>
+</tr>
+<tr ng-repeat="task in taskListCtrl.tasks.items">
+	<td>{{task.displayName}}</td>
+	<td>{{task.processId.displayName}} {{task.processId.version}}</td>
+	<td class="centered"><span ng-class="getPriorityIconClass(task.priority)" aria-hidden="true" title="{{task.priority}}"></span></td>
+	<td>{{task.reached_state_date | dateString}}</td>
+	<td>{{task.dueDate | dateString}}</td>
+	<td>
+		<button class="btn btn-primary btn-sm" title="Execute" ng-click="openBonitaTaskForm(task)"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+	</td>
+</tr>
+</table>
+
+<h4 ng-show="taskListCtrl.tasks.items.length == 0">No pending task available at the moment.</h4>

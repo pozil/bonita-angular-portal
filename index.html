@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="angularPortal">
+<head>
+	<meta charset="utf-8">
+	<title>AngularJS Portal</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 3rd party dependencies -->
+	<link href="3rd-party/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="3rd-party/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+	<!-- Core application dependencies -->
+	<link href="portal.css" rel="stylesheet">
+</head>
+
+<body ng-controller="PortalController as portalCtrl">
+
+	<login ng-show="!isLogged()"></login>
+	<home ng-show="isLogged()"></home>
+	
+	<!-- 3rd party dependencies -->
+	<script src="3rd-party/jquery.min.js"></script>
+	<script src="3rd-party/angular.min.js"></script>
+	<script src="3rd-party/angular-resource.min.js"></script>
+	<script src="3rd-party/ngBonita.min.js"></script>
+	<script src="3rd-party/ui-bootstrap-tpls.min.js"></script>
+	<!-- Core application dependencies -->
+	<script src="portal.js"></script>
+</body>
+</html>

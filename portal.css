@@ -1,0 +1,84 @@
+html, body {height:100%; background-color:#eee;}
+.nav, .pagination, .carousel, .panel-title a		{cursor:pointer;}
+
+/* Login screen */
+login .container	{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-135px;
+	margin-left:-325px;
+	height:270px;
+	width:650px;
+}
+login h2	{margin: 0 0 10px 0;}
+
+login .logo {
+	display:inline-block;
+	float:left;
+	width:250px;
+	height:220px;
+	border-right:1px solid #CCCCCC;
+	background-image:url('gfx/logo-vertical.png');
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+login form {
+	display:inline-block;
+	width: 330px;
+	padding: 15px;
+	margin: 0;
+}
+
+login form .input-group	{margin-bottom:10px;}
+
+login form .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+login  .alert	{margin-bottom:0;}
+
+
+/* Navigation bar */
+nav .navbar-brand	{
+	background-image: url('gfx/logo-horizontal.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+	width: 360px;
+	height: 50px;
+}
+nav .user-settings	{padding:8px;}
+
+/* Home page content */
+h3.panel-title	{font-weight:bold;}
+
+.process-definition-container	{padding-right:0;}
+.process-definition-container .panel .panel-body	{padding:4px;}
+.process-definition-container accordion>div	{margin-bottom:0;}
+.process-definition-container .process-start	{text-align:center;}
+
+/* Listing tabs */
+ul.nav-tabs span.glyphicon	{margin-right:5px;}
+/* Listing table */
+.listing	{width:100%; border-collapse:collapse; margin-top:10px;}
+.listing th, .listing td	{border:1px solid #CCCCCC; padding:3px;}
+.listing th	{background-color:#EEEEEE; text-align:center;}
+.listing .centered	{text-align:center;}
+
+.ready-tasks td:last-child {width:50px; text-align:center;}
+.ready-tasks .priority-highest	{color:#FF0000;}
+.ready-tasks .priority-normal	{}
+.ready-tasks .priority-lowest	{color:#AAAAAA;}
+
+
+/* Bonita form modal */
+.bonita-form-modal .modal-header	{border-bottom-width:0;}
+.bonita-form-modal iframe	{height:400px; width:100%;}

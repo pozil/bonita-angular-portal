@@ -1,0 +1,26 @@
+<div class="container" ng-controller="LoginController as loginCtrl" ng-submit="loginCtrl.login()">
+	<div class="panel panel-default">
+	<div class="panel-body">
+	
+		<alert ng-show="errorMessage != null" type="danger">{{errorMessage}}</alert>
+	
+		<div class="logo"></div>
+		<form>
+			<h2>Please log in</h2>
+			
+			<div class="input-group">
+				<span class="input-group-addon" id="username-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+				<input type="text" ng-model="username" class="form-control" placeholder="Username" aria-describedby="username-addon" ng-disabled="isLoginInProgress" required autofocus/>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon" id="password-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+				<input type="password" ng-model="password" class="form-control" placeholder="Password" aria-describedby="password-addon" ng-disabled="isLoginInProgress" required/>
+			</div>
+			
+			<button ng-show="!isLoginInProgress" class="btn btn-lg btn-primary btn-block" type="submit" ng-show="!isLoginInProgress">Log in</button>
+			<div ng-show="isLoginInProgress">Loading...</div>
+		</form>
+	</div>
+	</div>
+</div>

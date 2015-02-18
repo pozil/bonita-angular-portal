@@ -1,0 +1,101 @@
+<div ng-controller="HomeController as homeCtrl">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="#"></a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home <span class="sr-only">(current)</span></a></li>
+			<li><a href="https://github.com/pozil/bonita-angular-portal"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> About</a></li>
+		  </ul>
+		  
+		  <!-- Nav bar right -->
+		  <ul class="nav navbar-nav navbar-right">
+			<li>
+				<div class="btn-group user-settings" dropdown is-open="status.isopen">
+					<button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{getUsername()}} <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a ng-click="logout()"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>
+					</ul>
+				</div>
+			</li>
+		  </ul>
+		</div>
+	  </div>
+	</nav>
+	
+	<div class="container-fluid main-container">
+		<div class="row">
+		
+			<!-- PROCESS DEFINITIONS -->
+			<div class="col-md-2 process-definition-container" ng-controller="ProcessDefinitionListController as procDefListCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<span class="glyphicon glyphicon-th" aria-hidden="true"></span> Processes <span class="badge">{{procDefListCtrl.getCount()}}</span> 
+							<button ng-click="procDefListCtrl.refresh()" class="btn btn-primary btn-sm" title="Refresh"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+						</h3>
+					</div>
+					<div class="panel-body">
+						
+						
+						<accordion ng-show="procDefListCtrl.procDefs.items.length > 0">
+							<accordion-group ng-repeat="procDef in procDefListCtrl.procDefs.items" is-open="procDef.accordion.open">
+								<accordion-heading>
+									{{procDef.name}} - {{procDef.version}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': procDef.accordion.open, 'glyphicon-chevron-right': !procDef.accordion.open}"></i>
+								</accordion-heading>
+								<div>{{procDef.displayDescription}}</div>
+								<div class="process-start">
+									<button class="btn btn-primary btn-sm" ng-click="openBonitaCaseStartForm(procDef)">Start <span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+								</div>
+							</accordion-group>
+						</accordion>
+						
+						<h4 ng-show="procDefListCtrl.procDefs.items.length == 0">No process available at the moment.</h4>
+					</div>
+				</div>
+			</div>
+			
+			<!-- TASKS -->
+			<div class="col-md-10" ng-controller="TaskListController as taskListCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<span class="glyphicon glyphicon-list" aria-hidden="true"></span> Tasks</span> 
+							<button ng-click="taskListCtrl.refresh()" class="btn btn-primary btn-sm" title="Refresh"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<tabset>
+							<tab>
+								<tab-heading>
+									<span class="glyphicon glyphicon-folder-open"></span> Pending tasks <span class="badge">{{taskListCtrl.getTaskCount()}}</span>
+								</tab-heading>
+								<human-task-list></human-task-list>
+							</tab>
+							<tab>
+								<tab-heading>
+									<span class="glyphicon glyphicon-folder-open"></span> Completed tasks <span class="badge">{{taskListCtrl.getArchivedTaskCount()}}</span>
+								</tab-heading>
+								<archived-human-task-list></archived-human-task-list>
+							</tab>
+						</tabset>
+					</div>
+				</div>	
+			</div>
+			
+		</div><!-- END MAIN ROW -->
+	</div>
+</div>
