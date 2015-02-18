@@ -1,6 +1,6 @@
 bonita-angular-portal
 ========================
-**Sample Portal for Bonita BPM built with AngularJS and Bootstrap.**
+**A custom portal for Bonita BPM built with AngularJS and Bootstrap.**
 
 <img src="screenshot.png"/>
 
